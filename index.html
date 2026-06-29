@@ -17,22 +17,30 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background-color: var(--bg-color); color: var(--text-main); min-height: 100vh; display: flex; justify-content: center; align-items: center; overflow-x: hidden; position: relative; padding: 2rem 1rem; }
+        body { background-color: var(--bg-color); color: var(--text-main); min-height: 100vh; display: flex; justify-content: center; align-items: flex-start; overflow-x: hidden; position: relative; padding: 2rem 1rem; }
         .bg-shape1 { position: absolute; width: 400px; height: 400px; background: radial-gradient(circle, rgba(59,130,246,0.3) 0%, rgba(0,0,0,0) 70%); top: -100px; left: -100px; border-radius: 50%; animation: float 8s infinite alternate ease-in-out; z-index: -1; }
         .bg-shape2 { position: absolute; width: 500px; height: 500px; background: radial-gradient(circle, rgba(139,92,246,0.25) 0%, rgba(0,0,0,0) 70%); bottom: -150px; right: -100px; border-radius: 50%; animation: float 10s infinite alternate-reverse ease-in-out; z-index: -1; }
         @keyframes float { 0% { transform: translateY(0px) translateX(0px); } 100% { transform: translateY(30px) translateX(30px); } }
-        .container { width: 100%; max-width: 450px; background: var(--card-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid var(--card-border); border-radius: 24px; padding: 2.5rem 2rem; text-align: center; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); animation: fadeIn 1s ease-out forwards; opacity: 0; transform: translateY(20px); }
+        .container { width: 100%; max-width: 480px; background: var(--card-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid var(--card-border); border-radius: 24px; padding: 2.5rem 2rem; text-align: center; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); animation: fadeIn 1s ease-out forwards; opacity: 0; transform: translateY(20px); margin-top: 20px;}
         @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+        
         .profile-img-container { width: 110px; height: 110px; margin: 0 auto 1.2rem auto; border-radius: 50%; padding: 4px; background: linear-gradient(135deg, #3b82f6, #8b5cf6); position: relative; }
-        .profile-img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 4px solid var(--bg-color); }
+        .profile-img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 4px solid var(--bg-color); background-color: white;}
         .verified-badge { position: absolute; bottom: 5px; right: 5px; background: #10b981; color: white; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 3px solid var(--bg-color); }
         h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; letter-spacing: -0.5px; }
-        p.bio { color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin-bottom: 2rem; }
+        p.bio { color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.5rem; }
+        
+        /* Redes Sociais no Topo */
+        .social-icons { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 2.5rem; }
+        .social-icon { color: #f8fafc; font-size: 1.5rem; transition: all 0.3s ease; text-decoration: none; opacity: 0.8; }
+        .social-icon:hover { opacity: 1; transform: scale(1.15); color: #3b82f6; }
+
         .links-container { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
         
         .link-card { display: flex; align-items: center; justify-content: space-between; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.05); padding: 1rem 1.2rem; border-radius: 16px; text-decoration: none; color: var(--text-main); font-weight: 500; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); position: relative; overflow: hidden; }
         .link-card:hover { transform: translateY(-3px) scale(1.02); background: rgba(255, 255, 255, 0.15); border-color: rgba(255, 255, 255, 0.2); box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.3); }
         
+        /* Design dos Produtos */
         .product-card { 
             justify-content: flex-start; 
             padding: 0; 
@@ -50,6 +58,7 @@
             border-radius: 0; 
             margin-right: 0;
             border: none;
+            background-color: white;
         }
         
         .product-info { 
@@ -81,9 +90,6 @@
 
         .link-icon { font-size: 1.2rem; width: 30px; display: flex; align-items: center; justify-content: center; }
         .link-text { flex: 1; text-align: center; padding-right: 30px; }
-        .social-icons { display: flex; justify-content: center; gap: 1.2rem; }
-        .social-icon { color: var(--text-muted); font-size: 1.5rem; transition: all 0.3s ease; text-decoration: none; }
-        .social-icon:hover { color: var(--text-main); transform: scale(1.1); }
         @keyframes slideUp { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
@@ -101,18 +107,24 @@
         <h1>@seu_usuario</h1>
         <p class="bio">Encontre tudo o que você precisa abaixo 👇</p>
         
+        <!-- REDES SOCIAIS (NO TOPO AGORA) -->
+        <!-- Para preencher, basta colocar o link do seu perfil onde está escrito "https://..." -->
+        <div class="social-icons">
+            <a href="https://tiktok.com/@SEU_USUARIO" target="_blank" class="social-icon" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://instagram.com/SEU_USUARIO" target="_blank" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/SEU_CANAL" target="_blank" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://facebook.com/SEU_PERFIL" target="_blank" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://pinterest.com/SEU_USUARIO" target="_blank" class="social-icon" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+            <a href="https://reddit.com/user/SEU_USUARIO" target="_blank" class="social-icon" aria-label="Reddit"><i class="fab fa-reddit"></i></a>
+            <a href="mailto:seu-email@gmail.com" target="_blank" class="social-icon" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+
         <div class="links-container" id="dynamic-links">
             <div class="loading-text">
                 <i class="fas fa-spinner fa-spin"></i> Carregando seus links...
             </div>
         </div>
         
-        <div class="social-icons">
-            <a href="mailto:seu-email@gmail.com" target="_blank" class="social-icon"><i class="fas fa-envelope"></i></a>
-            <a href="https://instagram.com/SEU_USUARIO" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
-            <a href="https://youtube.com/SEU_CANAL" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
-            <a href="https://reddit.com/user/SEU_USUARIO" target="_blank" class="social-icon"><i class="fab fa-reddit"></i></a>
-        </div>
     </div>
 
     <script>
